@@ -60,7 +60,7 @@ Object.defineProperty(Bits.prototype, 'offset', {
         if (offset < 0) {
             throw new RangeError('Cannot set offset below 0');
         }
-        if (offset >= this._length) {
+        if (offset > this._length) {
             throw new RangeError(
                 `Cannot set offset to ${offset}, buffer length is ${this._length}`
             );

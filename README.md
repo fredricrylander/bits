@@ -11,7 +11,7 @@ A tool for twiddling bits in buffers
 Create a 0-filled bit-buffer with a length of any given bit-length
 
 ```javascript
-const { Bits } = require('bits');
+const { Bits } = require('@fry/bits');
 const bits = new Bits(15 * 8); // 15 bytes capacity
 ```
 

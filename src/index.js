@@ -101,7 +101,7 @@ Bits.prototype.getBit = function(offset) {
     return this.peek(1, offset);
 };
 
-Bits.prototype.insert = function(value, count, offset) {
+Bits.prototype.insert = function(value, count = 1, offset) {
     offset = typeof offset === 'number' ? offset | 0 : this._offset;
 
     if (offset + count > this._length) {
@@ -134,7 +134,7 @@ Bits.prototype.modifyBit = function(value, offset) {
     return this;
 };
 
-Bits.prototype.peek = function(count, offset) {
+Bits.prototype.peek = function(count = 1, offset) {
     offset = typeof offset === 'number' ? offset | 0 : this._offset;
 
     if (offset + count > this._length) {
@@ -168,7 +168,7 @@ Bits.prototype.peek = function(count, offset) {
     return result;
 };
 
-Bits.prototype.read = function(count) {
+Bits.prototype.read = function(count = 1) {
     const result = this.peek(count, this._offset);
     this._offset += count;
     return result;
@@ -206,7 +206,7 @@ Bits.prototype.toString = function(encoding = 'utf8') {
     return this.buffer.toString(encoding);
 };
 
-Bits.prototype.write = function(value, count) {
+Bits.prototype.write = function(value, count = 1) {
     this._offset = this.insert(value, count, this._offset);
     return this;
 };

@@ -3,7 +3,7 @@
 const test = require('ava');
 const { Bits } = require('./index');
 
-test('Readme example', async t => {
+test('Readme example', t => {
     const bits = new Bits(2 * 8);
 
     // Write some bits, jump to the beginning of the buffer and read all bits
@@ -44,7 +44,7 @@ test('Readme example', async t => {
     t.is('fb60', hex);
 });
 
-test('Basic properties for first byte', async t => {
+test('Basic properties for first byte', t => {
     const buffer = Bits.alloc(1);
     t.is(false, buffer.eof);
     t.is(8, buffer.length);
@@ -92,4 +92,10 @@ test('Basic properties for first byte', async t => {
     t.is(0, buffer.remaining);
 });
 
-
+test('String formats', t => {
+    const buffer = Bits.from('日本語');
+    t.is('日本語', buffer.toString());
+    t.is('日本語', buffer.toString('utf8'));
+    t.is('e697a5e69cace8aa9e', buffer.toString('hex'));
+    t.is('5pel5pys6Kqe', buffer.toString('base64'));
+});

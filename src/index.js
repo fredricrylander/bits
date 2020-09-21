@@ -23,7 +23,7 @@ function Bits(bitLengthOrBuffer) {
 }
 
 Bits.alloc = function(byteLength, fill, encoding) {
-    return new Bits(Buffer.alloc(Math.ceil(byteLength / 8), fill, encoding));
+    return new Bits(Buffer.alloc(byteLength, fill, encoding));
 }
 
 Bits.from = function(value, encodingOrOffset, byteLength) {

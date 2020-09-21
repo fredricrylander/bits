@@ -1,5 +1,5 @@
 {
-  "name": "bits",
+  "name": "@fry/bits",
   "version": "1.0.0",
   "description": "Simplifies reading and writing bits in Buffers",
   "main": "src/index.js",
